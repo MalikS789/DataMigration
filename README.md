@@ -12,3 +12,17 @@ The program reads the data from the CSV file using a bufferedReader for the best
 *  design patterns were used for good clean code standards (DTO, DAO and singleton for the CSV reader class).
 *  The use of functional Programming were used were I felt it was better to do so.
 *  All exceptions are handled, with a logger used aswell.
+
+* The uploading process into the database can be choosen by the choose of several methods:
+  * Upload using *n* threads and using a batch insert process
+    * Using 12 threads: 1,524 milliseconds 
+    * Using 100 threads: 2,278 millseconds
+    * Using 500 threads: 13,348 milliseconds
+    * Using 1000 threads: 9,561 milliseconds
+  * Upload using *n* threads using a for loop and standard insert query
+    * Using 12 threads: 105,799 milliseconds 
+  * Upload using a single thread and using a batch process
+    * 1,345 milliseconds
+  * Upload using a single thread and a for loop and stand insert query
+    * 110,542 millseconds
+
