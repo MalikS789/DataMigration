@@ -45,6 +45,9 @@ public class Controller {
             threads[i].run();
         }
         for (UploadThread t : threads) {
+            if (t == null) {
+                break;
+            }
             while (!t.done) {
                 //this will ensure all threads are done
             }
