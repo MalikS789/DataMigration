@@ -1,5 +1,7 @@
 package com.sparta.malik.controller;
 
+import com.sparta.malik.controller.thread.UploadThread;
+import com.sparta.malik.controller.thread.UploadThreadNonBatched;
 import com.sparta.malik.model.CSVEmployeeReader;
 import com.sparta.malik.model.EmployeeDAO;
 import com.sparta.malik.model.EmployeeDTO;
@@ -8,9 +10,6 @@ import com.sparta.malik.view.Printer;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class Controller {
 

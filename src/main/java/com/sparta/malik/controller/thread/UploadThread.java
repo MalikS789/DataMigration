@@ -1,5 +1,6 @@
-package com.sparta.malik.controller;
+package com.sparta.malik.controller.thread;
 
+import com.sparta.malik.controller.Controller;
 import com.sparta.malik.model.EmployeeDTO;
 
 import java.util.ArrayList;
