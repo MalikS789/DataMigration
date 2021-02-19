@@ -8,6 +8,9 @@ import com.sparta.malik.view.Printer;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Controller {
 
@@ -26,9 +29,9 @@ public class Controller {
         if (employees == null || employees.size() < 1) {
             return;
         }
+        UploadThread[] threads = new UploadThread[numberOfThreads];
         int amountPerArray = (int) Math.ceil(employees.size() / (double) numberOfThreads);
         for (int i = 0; i < numberOfThreads; i++) {
-
             int lowerbound = (amountPerArray * i);
             int upperbound = amountPerArray * (i + 1);
 
@@ -38,8 +41,13 @@ public class Controller {
             if (upperbound >= employees.size()) {
                 upperbound = employees.size() - 1;
             }
-            UploadThread ut = new UploadThread(new ArrayList<EmployeeDTO>(employees.subList(lowerbound, upperbound)));
-            ut.run();
+            threads[i] = new UploadThread(new ArrayList<EmployeeDTO>(employees.subList(lowerbound, upperbound)));
+            threads[i].run();
+        }
+        for (UploadThread t : threads) {
+            while (!t.done) {
+                //this will ensure all threads are done
+            }
         }
     }
 
@@ -47,6 +55,7 @@ public class Controller {
         if (employees == null || employees.size() < 1) {
             return;
         }
+        UploadThreadNonBatched[] threads = new UploadThreadNonBatched[numberOfThreads];
         int amountPerArray = (int) Math.ceil(employees.size() / (double) numberOfThreads);
         for (int i = 0; i < numberOfThreads; i++) {
 
@@ -59,12 +68,13 @@ public class Controller {
             if (upperbound >= employees.size()) {
                 upperbound = employees.size() - 1;
             }
-            final ArrayList<EmployeeDTO> e = new ArrayList<EmployeeDTO>(employees.subList(lowerbound,upperbound));
-            new Thread(() -> {
-                for (EmployeeDTO employee : e) {
-                    UploadEmployee(employee);
-                }
-            }).run();
+            threads[i] = new UploadThreadNonBatched(new ArrayList<EmployeeDTO>(employees.subList(lowerbound, upperbound)));
+            threads[i].run();
+        }
+        for (UploadThreadNonBatched t : threads) {
+            while (!t.done) {
+                //this will ensure all threads are done
+            }
         }
     }
 
