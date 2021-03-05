@@ -1,6 +1,6 @@
 package com.sparta.malik.controller.thread;
 
-import com.sparta.malik.controller.Controller;
+import com.sparta.malik.controller.TraineeManager;
 import com.sparta.malik.model.EmployeeDTO;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class UploadThreadNonBatched implements Runnable {
     @Override
     public void run() {
         for (EmployeeDTO e : employeeDTOS) {
-            Controller.UploadEmployee(e);
+            TraineeManager.UploadEmployee(e);
         }
         done = true;
     }

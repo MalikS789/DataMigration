@@ -1,4 +1,4 @@
-package com.sparta.malik.view;
+package com.sparta.malik.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

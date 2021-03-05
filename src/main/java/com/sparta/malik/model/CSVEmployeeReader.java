@@ -53,6 +53,8 @@ public class CSVEmployeeReader {
                 redundancies.add(employeeDTO);
             }
         }
+        System.out.println(redundancies.size());
+
         return employees;
     }
 

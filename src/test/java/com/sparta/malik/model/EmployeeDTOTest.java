@@ -1,11 +1,7 @@
 package com.sparta.malik.model;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-
-import java.time.LocalDate;
+import org.junit.jupiter.api.Test;
 
 public class EmployeeDTOTest {
 

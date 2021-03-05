@@ -5,13 +5,13 @@ import com.sparta.malik.controller.thread.UploadThreadNonBatched;
 import com.sparta.malik.model.CSVEmployeeReader;
 import com.sparta.malik.model.EmployeeDAO;
 import com.sparta.malik.model.EmployeeDTO;
-import com.sparta.malik.view.Printer;
+import com.sparta.malik.util.Printer;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
 
-public class Controller {
+public class TraineeManager {
 
     private static EmployeeDAO dao = new EmployeeDAO();
 
@@ -37,8 +37,8 @@ public class Controller {
             if (lowerbound > employees.size()) {
                 break;
             }
-            if (upperbound >= employees.size()) {
-                upperbound = employees.size() - 1;
+            if (upperbound > employees.size()) {
+                upperbound = employees.size();
             }
             threads[i] = new UploadThread(new ArrayList<EmployeeDTO>(employees.subList(lowerbound, upperbound)));
             threads[i].run();

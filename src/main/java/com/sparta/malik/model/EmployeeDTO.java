@@ -1,6 +1,6 @@
 package com.sparta.malik.model;
 
-import com.sparta.malik.view.Printer;
+import com.sparta.malik.util.Printer;
 
 import java.time.LocalDate;
 
