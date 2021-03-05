@@ -1,9 +1,9 @@
 # DataMigration
 
 <p align="center">
-  <img src="./csv-file.png" width="200" title="CSV icon">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Black_Right_Arrow.png" width="200" title="arrow icon">
-  <img src="./database.png" width="200" alt="SQL database">
+  <img src="./csv-file.png" width="150" title="CSV icon">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Black_Right_Arrow.png" width="150" title="arrow icon">
+  <img src="./database.png" width="150" alt="SQL database">
 </p>
 
 For this project, I performed a data migration exercise from a CSV file to a MySQL database. The file contains details about Employees
@@ -15,7 +15,7 @@ The program reads the data from the CSV file using a bufferedReader for the best
 *  All duplicate employees are stored in an arraylist called *duplicates* however for the purposes of this project nothing more was done with them.
 *  Through testing is implimented via JUnit testing to make sure all methods in the project work as intented
 *  Performance testing is done for all aspects of the project, including testing execution time!
-*  design patterns were used for good clean code standards (DTO, DAO and singleton for the CSV reader class).
+*  design patterns were used for good clean code standards (DTO, DAO).
 *  The use of functional Programming were used when I felt it was better to do so.
 *  All exceptions are handled, with a logger used.
 
