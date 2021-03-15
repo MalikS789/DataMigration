@@ -40,7 +40,7 @@ public class EmployeeDAO {
     }
 
     public void addEmployee(EmployeeDTO e) {
-        if (getEmployee(e.getEmpID()) == null) {
+        if (getEmployee(e.getId()) == null) {
             try {
                 PreparedStatement preparedStatement = connectToDatabase().prepareStatement(insertEmployeeUsingParameters);
                 preparedStatement.setString(1, e.getPrefix());
@@ -58,7 +58,7 @@ public class EmployeeDAO {
                     Printer.printErrorMessage(new Exception("Unable to add employee to the database"));
                 } else {
 //                    Printer.printMessage("" + e.getEmpID());
-                    alreadyAdded.put(e.getEmpID(), e);
+                    alreadyAdded.put(e.getId(), e);
                 }
             } catch (SQLException throwables) {
                 Printer.printErrorMessage(throwables);
@@ -109,7 +109,7 @@ public class EmployeeDAO {
             preparedStatement = connectToDatabase().prepareStatement(updateEmployeesUsingParameters);
             preparedStatement.setString(1, columnName);
             preparedStatement.setObject(2, newValue);
-            preparedStatement.setInt(3, e.getEmpID());
+            preparedStatement.setInt(3, e.getId());
             preparedStatement.setString(4, columnName);
             preparedStatement.setObject(5, newValue);
             if (preparedStatement.executeUpdate() == 0) {

@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class EmployeeDTO {
 
-    private int empID;
+    private int id;
     private String prefix;
     private String firstName;
     private char middleInitial;
@@ -17,12 +17,12 @@ public class EmployeeDTO {
     private LocalDate dateofJoining;
     private float salary = 0f;
 
-    public EmployeeDTO(int empID, String prefix,
+    public EmployeeDTO(int id, String prefix,
                        String firstName, char middleInitial,
                        String lastName, char gender, String email,
                        LocalDate dateofBirth, LocalDate dateofJoining, float salary
     ) {
-        this.empID = empID;
+        this.id = id;
         this.prefix = prefix;
         this.firstName = firstName;
         this.middleInitial = middleInitial;
@@ -34,12 +34,12 @@ public class EmployeeDTO {
         setSalary(salary);
     }
 
-    public int getEmpID() {
-        return empID;
+    public int getId() {
+        return id;
     }
 
-    public void setEmpID(int empID) {
-        this.empID = empID;
+    public void setId(int empID) {
+        this.id = empID;
     }
 
     public String getPrefix() {
@@ -136,7 +136,7 @@ public class EmployeeDTO {
 
     @Override
     public String toString() {
-        return "empID=" + empID +
+        return "id=" + id +
                 ", prefix='" + prefix + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleInitial='" + middleInitial + '\'' +
